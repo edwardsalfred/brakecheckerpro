@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Brake Checker Pro | Competitive Analysis</title>
+    <link rel="icon" type="image/png" href="/assets/brakecheckerprofinalv4.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --ink:#0a0a0a;
+            --paper:#f6f4f0;
+            --terracotta:#c45d3e;
+            --terracotta-soft:#e8a48e;
+            --muted:#8a8580;
+            --hairline:#d6d2cc;
+            --card:#fffefa;
+            --shadow:rgba(10,10,10,0.06);
+            --good:#3e7a4e;
+            --bad:#a64533;
+            --warn:#c98a3e;
+        }
+        body {
+            font-family:'DM Sans',sans-serif;
+            background:var(--paper);
+            color:var(--ink);
+            line-height:1.6;
+            -webkit-font-smoothing:antialiased;
+            overflow-x:hidden;
+        }
+        body::after {
+            content:'';
+            position:fixed;
+            inset:0;
+            background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events:none;
+            z-index:9999;
+        }
+        .container { max-width:920px; margin:0 auto; padding:0 2rem; }
+        header {
+            padding:5rem 0 3.5rem;
+            text-align:center;
+            position:relative;
+        }
+        header::before {
+            content:'';
+            position:absolute;
+            top:0; left:50%;
+            transform:translateX(-50%);
+            width:1px; height:70px;
+            background:linear-gradient(to bottom,transparent,var(--terracotta));
+        }
+        .eyebrow {
+            font-size:.72rem;
+            letter-spacing:.28em;
+            text-transform:uppercase;
+            color:var(--terracotta);
+            font-weight:500;
+            margin-bottom:1.4rem;
+        }
+        h1 {
+            font-family:'Instrument Serif',serif;
+            font-size:clamp(2.6rem,5.5vw,4rem);
+            font-weight:400;
+            line-height:1.05;
+            letter-spacing:-.02em;
+            margin-bottom:1.2rem;
+        }
+        h1 em { color:var(--terracotta); font-style:italic; }
+        .subtitle {
+            font-size:1.02rem;
+            color:var(--muted);
+            max-width:560px;
+            margin:0 auto;
+            line-height:1.65;
+        }
+        .meta-row {
+            display:flex;
+            justify-content:center;
+            gap:1.5rem;
+            margin-top:2.2rem;
+            font-size:.78rem;
+            letter-spacing:.12em;
+            color:var(--muted);
+            text-transform:uppercase;
+        }
+        .meta-row span:not(:last-child)::after {
+            content:'·';
+            margin-left:1.5rem;
+            color:var(--hairline);
+        }
+        .badge {
+            display:inline-block;
+            padding:.4rem .9rem;
+            border:1px solid var(--terracotta);
+            border-radius:999px;
+            font-size:.7rem;
+            letter-spacing:.2em;
+            text-transform:uppercase;
+            color:var(--terracotta);
+            margin-top:1.6rem;
+        }
+        section { padding:3rem 0; position:relative; }
+        section + section::before {
+            content:'';
+            position:absolute;
+            top:0; left:50%;
+            transform:translateX(-50%);
+            width:1px; height:48px;
+            background-image:linear-gradient(to bottom,var(--hairline) 50%,transparent 50%);
+            background-size:1px 8px;
+            opacity:.6;
+        }
+        .section-head { margin-bottom:2.5rem; text-align:center; }
+        .section-head .num {
+            font-family:'Instrument Serif',serif;
+            font-size:4rem;
+            color:var(--hairline);
+            line-height:1;
+            margin-bottom:.6rem;
+        }
+        .section-head h2 {
+            font-family:'Instrument Serif',serif;
+            font-size:2.1rem;
+            font-weight:400;
+            margin-bottom:.6rem;
+            letter-spacing:-.01em;
+        }
+        .section-head .lead {
+            font-size:.95rem;
+            color:var(--muted);
+            max-width:520px;
+            margin:0 auto;
+        }
+        .card {
+            background:var(--card);
+            border:1px solid var(--hairline);
+            border-left:4px solid var(--terracotta);
+            border-radius:6px;
+            padding:1.8rem 2rem;
+            margin-bottom:1.4rem;
+            box-shadow:0 1px 3px var(--shadow);
+            transition:box-shadow .2s ease;
+        }
+        .card:hover { box-shadow:0 4px 14px var(--shadow); }
+        .card h3 {
+            font-family:'Instrument Serif',serif;
+            font-size:1.5rem;
+            font-weight:400;
+            margin-bottom:.2rem;
+        }
+        .card .url {
+            display:inline-block;
+            margin-bottom:1rem;
+            font-size:.82rem;
+            color:var(--terracotta);
+            border-bottom:1px solid var(--terracotta);
+            text-decoration:none;
+            font-weight:500;
+        }
+        .card .url:hover { opacity:.75; }
+        .swatches { display:flex; gap:.5rem; margin:1rem 0 1.2rem; flex-wrap:wrap; }
+        .swatch {
+            width:36px; height:36px;
+            border-radius:6px;
+            border:1px solid var(--hairline);
+            position:relative;
+        }
+        .swatch::after {
+            content:attr(data-hex);
+            position:absolute;
+            bottom:-18px; left:50%;
+            transform:translateX(-50%);
+            font-size:.62rem;
+            color:var(--muted);
+            white-space:nowrap;
+            font-variant-numeric:tabular-nums;
+        }
+        .pros-cons {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:1.2rem;
+            margin:1.6rem 0 1rem;
+        }
+        .pros-cons h4 {
+            font-size:.72rem;
+            letter-spacing:.2em;
+            text-transform:uppercase;
+            margin-bottom:.6rem;
+            color:var(--muted);
+        }
+        .pros-cons ul { list-style:none; }
+        .pros-cons li {
+            font-size:.92rem;
+            margin-bottom:.4rem;
+            padding-left:1rem;
+            position:relative;
+            line-height:1.55;
+        }
+        .pros-cons .pros li::before {
+            content:'+';
+            position:absolute;
+            left:0;
+            color:var(--good);
+            font-weight:600;
+        }
+        .pros-cons .cons li::before {
+            content:'−';
+            position:absolute;
+            left:0;
+            color:var(--bad);
+            font-weight:600;
+        }
+        .score-row {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding-top:1.2rem;
+            border-top:1px solid var(--hairline);
+            margin-top:1rem;
+            font-size:.85rem;
+        }
+        .score-row strong {
+            font-family:'Instrument Serif',serif;
+            font-size:1.6rem;
+            color:var(--terracotta);
+        }
+        .tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.8rem; }
+        .tag {
+            font-size:.68rem;
+            letter-spacing:.12em;
+            text-transform:uppercase;
+            padding:.3rem .7rem;
+            background:rgba(196,93,62,.08);
+            color:var(--terracotta);
+            border-radius:999px;
+        }
+        table.compare {
+            width:100%;
+            border-collapse:collapse;
+            background:var(--card);
+            border:1px solid var(--hairline);
+            border-radius:6px;
+            overflow:hidden;
+            font-size:.88rem;
+        }
+        table.compare th, table.compare td {
+            padding:.85rem 1rem;
+            text-align:left;
+            border-bottom:1px solid var(--hairline);
+        }
+        table.compare th {
+            background:rgba(196,93,62,.06);
+            font-weight:500;
+            font-size:.72rem;
+            letter-spacing:.14em;
+            text-transform:uppercase;
+            color:var(--muted);
+        }
+        table.compare tr:last-child td { border-bottom:none; }
+        table.compare tr.us {
+            background:rgba(196,93,62,.05);
+            font-weight:500;
+        }
+        table.compare tr.us td:first-child { color:var(--terracotta); }
+        .check { color:var(--good); font-weight:600; }
+        .x { color:var(--bad); font-weight:600; }
+        .pattern-card {
+            background:var(--card);
+            border:1px solid var(--hairline);
+            border-radius:6px;
+            padding:1.5rem 1.8rem;
+            margin-bottom:1rem;
+            display:grid;
+            grid-template-columns:auto 1fr;
+            gap:1.3rem;
+            align-items:start;
+        }
+        .pattern-card .pn {
+            font-family:'Instrument Serif',serif;
+            font-size:2.2rem;
+            color:var(--terracotta);
+            line-height:1;
+        }
+        .pattern-card h4 {
+            font-family:'Instrument Serif',serif;
+            font-size:1.2rem;
+            font-weight:400;
+            margin-bottom:.4rem;
+        }
+        .pattern-card p {
+            font-size:.92rem;
+            color:var(--ink);
+            line-height:1.65;
+        }
+        .pattern-card .src {
+            display:block;
+            margin-top:.5rem;
+            font-size:.74rem;
+            color:var(--muted);
+            letter-spacing:.06em;
+        }
+        .direction-grid {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:1.2rem;
+            margin-top:1.6rem;
+        }
+        .direction-card {
+            background:var(--card);
+            border:1px solid var(--hairline);
+            border-top:3px solid var(--terracotta);
+            border-radius:6px;
+            padding:1.4rem 1.5rem;
+        }
+        .direction-card h4 {
+            font-size:.72rem;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+            color:var(--muted);
+            margin-bottom:.6rem;
+        }
+        .direction-card .v {
+            font-family:'Instrument Serif',serif;
+            font-size:1.3rem;
+            line-height:1.3;
+            margin-bottom:.5rem;
+        }
+        .direction-card .r { font-size:.85rem; color:var(--muted); line-height:1.5; }
+        .keyword-block {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:1rem;
+            margin-top:1.4rem;
+        }
+        .kw-list {
+            background:var(--card);
+            border:1px solid var(--hairline);
+            padding:1.2rem 1.4rem;
+            border-radius:6px;
+        }
+        .kw-list h4 {
+            font-size:.72rem;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+            color:var(--muted);
+            margin-bottom:.7rem;
+        }
+        .kw-list ul { list-style:none; }
+        .kw-list li {
+            font-size:.88rem;
+            padding:.32rem 0;
+            border-bottom:1px dotted var(--hairline);
+            font-variant-numeric:tabular-nums;
+        }
+        .kw-list li:last-child { border-bottom:none; }
+        footer {
+            padding:3rem 0 2.5rem;
+            text-align:center;
+            border-top:1px solid var(--hairline);
+            margin-top:3rem;
+        }
+        footer p { font-size:.82rem; color:var(--muted); letter-spacing:.06em; }
+        .credit-foot {
+            width:100%;
+            margin-top:1.4rem;
+            padding-top:1.4rem;
+            border-top:1px solid var(--hairline);
+            text-align:center;
+            font-size:.78rem;
+            letter-spacing:.08em;
+        }
+        .credit-foot a {
+            color:var(--terracotta);
+            font-weight:600;
+            border-bottom:1px solid var(--terracotta);
+            text-decoration:none;
+        }
+        @media (max-width:720px) {
+            .pros-cons { grid-template-columns:1fr; }
+            .direction-grid { grid-template-columns:1fr; }
+            .keyword-block { grid-template-columns:1fr; }
+            table.compare { font-size:.78rem; }
+            table.compare th, table.compare td { padding:.6rem .5rem; }
+        }
+        @media print {
+            body { background:#fff; }
+            body::after { display:none; }
+            section { page-break-inside:avoid; }
+            .card, .pattern-card, .direction-card { page-break-inside:avoid; }
+            header { padding:3rem 0 2rem; }
+            section { padding:2rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="eyebrow">Competitive Analysis</div>
+            <h1>Brake Checker Pro<br><em>vs. the field</em></h1>
+            <p class="subtitle">A market scan of the pre-trip inspection tool niche, the design patterns of the top 10%, and the conversion levers nobody is pulling yet.</p>
+            <div class="badge">Confidential · Prepared for Brake Checker Pro</div>
+            <div class="meta-row">
+                <span>May 2026</span>
+                <span>5 Competitors Reviewed</span>
+                <span>Niche Score 5/10</span>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <div class="num">01</div>
+                <h2>Executive Summary</h2>
+                <p class="lead">What the market looks like, and why the door is wide open.</p>
+            </div>
+            <div class="card">
+                <p style="font-size:1.02rem; line-height:1.75;">
+                    Brake Checker Pro sits in a niche with <strong>no direct DTC competitors</strong>. The adjacent landscape is dominated by handheld pre-trip multi-tools ($9 to $30) sold through industrial catalogs, B2B leak-detection equipment ($1,000+, quote-only), and big-retailer trucking storefronts. Every site we reviewed scores 6 to 7 out of 10 on visual design. All functional. None aspirational. None mobile-first. None tell a story.
+                </p>
+                <p style="font-size:1.02rem; line-height:1.75; margin-top:1rem;">
+                    Brake Checker Pro has a patented, USA-assembled, single-purpose solo brake tester at $79.99. The product is real, the cab-installed photos are excellent, and the audience pain point (DOT out-of-service violations, $500 to $2,000 per event) is severe. <strong>A premium, single-product DTC site with modern scroll storytelling, sticky CTA, real driver voice, and ROI math will visually and conversion-wise dominate every competitor in the space.</strong>
+                </p>
+                <div class="tags">
+                    <span class="tag">Wide-open niche</span>
+                    <span class="tag">No design leader</span>
+                    <span class="tag">Strong ROI story</span>
+                    <span class="tag">Real product proof</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <div class="num">02</div>
+                <h2>Competitor Profiles</h2>
+                <p class="lead">Five sites that the audience is most likely to land on when searching for similar tools.</p>
+            </div>
+
+            <div class="card">
+                <h3>Brake Tech Tools</h3>
+                <a class="url" href="https://braketechtools.com" target="_blank" rel="noopener">braketechtools.com</a>
+                <p style="font-size:.92rem; color:var(--muted); margin-bottom:.6rem;">BT-106PKT Truck Inspector · $9.50 (on sale) · 5-in-1 pocket gauge</p>
+                <div class="swatches">
+                    <div class="swatch" data-hex="#1a1a1a" style="background:#1a1a1a;"></div>
+                    <div class="swatch" data-hex="#e63a3a" style="background:#e63a3a;"></div>
+                    <div class="swatch" data-hex="#f5f5f5" style="background:#f5f5f5;"></div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Strengths</h4>
+                        <ul>
+                            <li>Cites FMCSA codes (393.75, 393.47, 393.60) by number</li>
+                            <li>"Original Patented" language used aggressively</li>
+                            <li>Made-in-USA + 12-gauge stainless steel emphasis</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Weaknesses</h4>
+                        <ul>
+                            <li>No customer reviews visible on PDP</li>
+                            <li>Generic Shopify aesthetic</li>
+                            <li>No real-use photography, no video demo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="score-row">
+                    <span>Closest direct competitor in product category</span>
+                    <strong>6.5 / 10</strong>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Iowa 80</h3>
+                <a class="url" href="https://www.iowa80.com/pd/pretrip-inspection-tool/241798/" target="_blank" rel="noopener">iowa80.com</a>
+                <p style="font-size:.92rem; color:var(--muted); margin-bottom:.6rem;">Pre-Trip Inspection Tool · $19.99 · World's largest truck stop</p>
+                <div class="swatches">
+                    <div class="swatch" data-hex="#000000" style="background:#000000;"></div>
+                    <div class="swatch" data-hex="#cc0000" style="background:#cc0000;"></div>
+                    <div class="swatch" data-hex="#ffffff" style="background:#ffffff;"></div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Strengths</h4>
+                        <ul>
+                            <li>Trusted authority among truckers</li>
+                            <li>Direct phone line + shipping clarity</li>
+                            <li>"CSA compliance" / "save time and money" copy</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Weaknesses</h4>
+                        <ul>
+                            <li>No reviews on PDP</li>
+                            <li>Sterile black and white palette, no warmth</li>
+                            <li>"Unavailable" status dominates above the fold</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="score-row">
+                    <span>Catalog dominance, not a DTC threat</span>
+                    <strong>7 / 10</strong>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Redline Detection</h3>
+                <a class="url" href="https://redlinedetection.com/products/air-brake-nanoleak-finder" target="_blank" rel="noopener">redlinedetection.com</a>
+                <p style="font-size:.92rem; color:var(--muted); margin-bottom:.6rem;">Air Brake NanoLeak Finder · Quote-only · B2B / shop tier</p>
+                <div class="swatches">
+                    <div class="swatch" data-hex="#0f2c4f" style="background:#0f2c4f;"></div>
+                    <div class="swatch" data-hex="#c8102e" style="background:#c8102e;"></div>
+                    <div class="swatch" data-hex="#ffffff" style="background:#ffffff;"></div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Strengths</h4>
+                        <ul>
+                            <li>Has a video demo ("WATCH: Find air brake leaks")</li>
+                            <li>1-year No Hassle warranty, OEM-Approved badge</li>
+                            <li>Premium B2B presentation</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Weaknesses</h4>
+                        <ul>
+                            <li>Quote-only kills DTC conversion</li>
+                            <li>Navy corporate look reads as enterprise-only</li>
+                            <li>Different price tier, different buyer</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="score-row">
+                    <span>Premium B2B benchmark, not a head-to-head</span>
+                    <strong>7 / 10</strong>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>J.J. Keller</h3>
+                <a class="url" href="https://www.jjkeller.com/shop/pre-trip-inspection-tool" target="_blank" rel="noopener">jjkeller.com</a>
+                <p style="font-size:.92rem; color:var(--muted); margin-bottom:.6rem;">Pre-Trip Inspection Tool · ~$20 · Compliance giant</p>
+                <div class="swatches">
+                    <div class="swatch" data-hex="#003876" style="background:#003876;"></div>
+                    <div class="swatch" data-hex="#ffb81c" style="background:#ffb81c;"></div>
+                    <div class="swatch" data-hex="#ffffff" style="background:#ffffff;"></div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Strengths</h4>
+                        <ul>
+                            <li>Real customer reviews on PDP</li>
+                            <li>Copy directly addresses CSA scores + OOS prevention</li>
+                            <li>Massive brand trust in compliance space</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Weaknesses</h4>
+                        <ul>
+                            <li>Cluttered catalog layout</li>
+                            <li>No hero-shot energy</li>
+                            <li>Design feels enterprise-procurement, not DTC</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="score-row">
+                    <span>Sets the bar for compliance language</span>
+                    <strong>7 / 10</strong>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Brake Light & Air Leak Checker Tool (current site)</h3>
+                <a class="url" href="https://brakelightandairleakcheckertool.com/" target="_blank" rel="noopener">brakelightandairleakcheckertool.com</a>
+                <p style="font-size:.92rem; color:var(--muted); margin-bottom:.6rem;">The Brake Checker Pro · $79.99 · Current WordPress build</p>
+                <div class="swatches">
+                    <div class="swatch" data-hex="#f50c0c" style="background:#f50c0c;"></div>
+                    <div class="swatch" data-hex="#272727" style="background:#272727;"></div>
+                    <div class="swatch" data-hex="#ffb800" style="background:#ffb800;"></div>
+                    <div class="swatch" data-hex="#ffffff" style="background:#ffffff;"></div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>Strengths</h4>
+                        <ul>
+                            <li>Real cab-installed product photos</li>
+                            <li>Patented + USA-assembled claim is genuine</li>
+                            <li>Unique product, no direct DTC competition</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>Weaknesses</h4>
+                        <ul>
+                            <li>Generic WordPress multipurpose template</li>
+                            <li>Stock testimonials (template avatar URLs visible)</li>
+                            <li>No ROI math, no DOT-citation framing, no sticky CTA</li>
+                            <li>Weak hero, no scroll storytelling, no video</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="score-row">
+                    <span>The baseline we are replacing</span>
+                    <strong>5 / 10</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <div class="num">03</div>
+                <h2>Head-to-Head Scorecard</h2>
+                <p class="lead">Eight criteria, five sites, plus the new build target.</p>
+            </div>
+            <table class="compare">
+                <thead>
+                    <tr>
+                        <th>Site</th>
+                        <th>Price</th>
+                        <th>Reviews</th>
+                        <th>USA Made</th>
+                        <th>Patent Claim</th>
+                        <th>Real Photos</th>
+                        <th>Video</th>
+                        <th>Sticky CTA</th>
+                        <th>Design</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Brake Tech Tools</td>
+                        <td>$9.50</td>
+                        <td><span class="x">No</span></td>
+                        <td><span class="check">Yes</span></td>
+                        <td><span class="check">Yes</span></td>
+                        <td>Studio</td>
+                        <td><span class="x">No</span></td>
+                        <td><span class="x">No</span></td>
+                        <td>6.5</td>
+                    </tr>
+                    <tr>
+                        <td>Iowa 80</td>
+                        <td>$19.99</td>
+                        <td><span class="x">No</span></td>
+                        <td>Implied</td>
+                        <td><span class="x">No</span></td>
+                        <td>Studio</td>
+                        <td><span class="x">No</span></td>
+                        <td><span class="x">No</span></td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Redline Detection</td>
+                        <td>Quote</td>
+                        <td><span class="x">No</span></td>
+                        <td>Implied</td>
+                        <td><span class="check">Yes</span></td>
+                        <td>Lifestyle</td>
+                        <td><span class="check">Yes</span></td>
+                        <td><span class="x">No</span></td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>J.J. Keller</td>
+                        <td>~$20</td>
+                        <td><span class="check">Yes</span></td>
+                        <td><span class="check">Yes</span></td>
+                        <td><span class="x">No</span></td>
+                        <td>Studio</td>
+                        <td><span class="x">No</span></td>
+                        <td><span class="x">No</span></td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Current Brake Checker site</td>
+                        <td>$79.99</td>
+                        <td>Fake</td>
+                        <td><span class="check">Yes</span></td>
+                        <td><span class="check">Yes</span></td>
+                        <td><strong>Real cab</strong></td>
+                        <td><span class="x">No</span></td>
+                        <td><span class="x">No</span></td>
+                        <td>5</td>
+                    </tr>
+                    <tr class="us">
+                        <td>Brake Checker Pro (target)</td>
+                        <td>$79.99</td>
+                        <td><span class="check">Real</span></td>
+                        <td><span class="check">Yes</span></td>
+                        <td><span class="check">Yes</span></td>
+                        <td><strong>Real + studio</strong></td>
+                        <td><span class="check">Demo slot</span></td>
+                        <td><span class="check">Yes</span></td>
+                        <td><strong>9+</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <div class="num">04</div>
+                <h2>SEO Landscape</h2>
+                <p class="lead">Where the niche fights for traffic, and which corners are still empty.</p>
+            </div>
+            <div class="keyword-block">
+                <div class="kw-list">
+                    <h4>Crowded (Iowa 80, J.J. Keller dominate)</h4>
+                    <ul>
+                        <li>pre-trip inspection tool</li>
+                        <li>FMCSA inspection tool</li>
+                        <li>CSA compliance tool</li>
+                        <li>truck inspection multi-tool</li>
+                        <li>brake stroke gauge</li>
+                    </ul>
+                </div>
+                <div class="kw-list">
+                    <h4>Open lane for Brake Checker Pro</h4>
+                    <ul>
+                        <li>solo brake light test</li>
+                        <li>one person air leak check</li>
+                        <li>brake pedal holder truck inspection</li>
+                        <li>air leak check tool truck</li>
+                        <li>DOT out of service prevention</li>
+                        <li>patented brake light checker</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="font-size:.92rem; color:var(--muted); margin-top:1.4rem; max-width:640px;">
+                Target the long-tail. Lead the homepage H1 with the product name, but layer "solo," "one driver," "patented," and "DOT" into H2s, image alt text, and the meta description. The keyword combinations on the right have low competition and high intent.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <div class="num">05</div>
+                <h2>Patterns of the Top 10%</h2>
+                <p class="lead">What the strongest pages all do, and what the entire niche is missing.</p>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pn">01</div>
+                <div>
+                    <h4>Cite regulations by code, not by feeling</h4>
+                    <p>Brake Tech Tools quotes FMCSA 393.75 (tires), 393.47 (brakes), 393.60 (windshield). J.J. Keller talks "CSA scores" and "out-of-service citations" in product copy. Specificity is credibility in this audience.</p>
+                    <span class="src">Source: Brake Tech Tools, J.J. Keller</span>
+                </div>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pn">02</div>
+                <div>
+                    <h4>Lead with the financial pain, not the feature</h4>
+                    <p>One DOT out-of-service event runs $500 to $2,000 in lost loads, fines, and downtime. The strongest copy frames the tool as the prevention. At $79.99, the math is "pays for itself ten times over the first prevented ticket." Nobody in the niche is showing this calculation.</p>
+                    <span class="src">Gap exploit: ROI math missing across all competitors</span>
+                </div>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pn">03</div>
+                <div>
+                    <h4>Patent and USA-made are baseline credibility</h4>
+                    <p>Every player who has either claim leans on it hard. We have both, and the product is genuinely patented. A visual "Patented Design · Assembled in USA" badge belongs above the fold.</p>
+                    <span class="src">Source: Brake Tech Tools, J.J. Keller, Redline Detection</span>
+                </div>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pn">04</div>
+                <div>
+                    <h4>Real reviews beat lots of reviews</h4>
+                    <p>J.J. Keller has 4 to 6 short customer reviews. They convert. The current Brake Checker site has 2 stock testimonials with template avatar URLs visible. That kills trust on inspection. Better to ship empty and add real ones than to ship fake.</p>
+                    <span class="src">Source: J.J. Keller (real); current site (fake)</span>
+                </div>
+            </div>
+
+            <div class="pattern-card">
+                <div class="pn">05</div>
+                <div>
+                    <h4>Where the niche fails: the gap to dominate</h4>
+                    <p>No premium design. No mobile-first thinking. No sticky buy bar. No video demo. No real driver voice. No ROI math. Every one of these is a single afternoon of work, and together they create a visual gap so wide that Brake Checker Pro will look like a different category of company.</p>
+                    <span class="src">Synthesis across all five competitors</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <div class="num">06</div>
+                <h2>Recommended Design Direction</h2>
+                <p class="lead">Specific choices, each backed by what the competition is and isn't doing.</p>
+            </div>
+            <div class="direction-grid">
+                <div class="direction-card">
+                    <h4>Primary Color</h4>
+                    <div class="v">Brake-light Red <span style="display:inline-block;width:18px;height:18px;background:#E11D1D;border-radius:4px;vertical-align:middle;border:1px solid var(--hairline);"></span> #E11D1D</div>
+                    <p class="r">Keep the client's red. Deepen slightly from #F50C0C for legibility on white. Matches the logo and the actual brake light it tests.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>Foundation</h4>
+                    <div class="v">Asphalt Black <span style="display:inline-block;width:18px;height:18px;background:#0F0F10;border-radius:4px;vertical-align:middle;border:1px solid var(--hairline);"></span> #0F0F10</div>
+                    <p class="r">Deep near-black for dark sections, footer, and high-contrast type. Pairs with the red without competing.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>Accent</h4>
+                    <div class="v">Safety Amber <span style="display:inline-block;width:18px;height:18px;background:#FFB800;border-radius:4px;vertical-align:middle;border:1px solid var(--hairline);"></span> #FFB800</div>
+                    <p class="r">Hazard amber for highlights, ROI callouts, and badges. Already in the brand. Universally read as caution / safety by drivers.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>Display Type</h4>
+                    <div class="v">Anton or Bebas Neue</div>
+                    <p class="r">Heavy condensed industrial sans for the hero. Nobody in the niche uses one. Instant differentiation.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>Body Type</h4>
+                    <div class="v">Inter</div>
+                    <p class="r">Modern, neutral, screen-optimized. Higher screen quality than Jost (the current font) without losing the geometric feel.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>Photography</h4>
+                    <div class="v">Real cab shots over studio</div>
+                    <p class="r">The client already has cab-installed shots. Competitors only have studio. Lead with proof of real use.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>Conversion Lever #1</h4>
+                    <div class="v">Sticky bottom buy bar</div>
+                    <p class="r">Price + Buy button always visible on scroll. Zero competitors do this. Single biggest lift for a $79 single-product DTC.</p>
+                </div>
+                <div class="direction-card">
+                    <h4>Conversion Lever #2</h4>
+                    <div class="v">ROI math callout</div>
+                    <p class="r">"One prevented out-of-service = $500–$2,000 saved. This tool: $79.99." Hero or mid-page. Specific dollar numbers convert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Brake Checker Pro · Competitive Analysis · May 2026</p>
+            <p style="margin-top:.4rem;">Confidential. Prepared for the client. Not for redistribution.</p>
+            <div class="credit-foot">
+                Created by <a href="https://www.chatbotboy.ai/" target="_blank" rel="noopener">Chatbot Boy AI</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

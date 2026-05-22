@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /competitive-analysis.html
+
+Sitemap: https://brakecheckerpro.com/sitemap.xml

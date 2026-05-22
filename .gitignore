@@ -1,0 +1,17 @@
+# Debug artifacts from local agent runs
+.playwright-mcp/
+verify-*.png
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / build (none used today, but keep these out by default)
+node_modules/
+dist/
+.cache/
+
+# Env files
+.env
+.env.local
+.env.*.local
