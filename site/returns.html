@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Return Policy | Brake Checker Pro</title>
+    <meta name="description" content="30-day no-questions-asked returns on Brake Checker Pro. No restocking fees. Defective or damaged units replaced free of charge.">
+    <meta name="theme-color" content="#0F0F10">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="30-Day Return Policy | Brake Checker Pro">
+    <meta property="og:description" content="30-day no-questions-asked returns on Brake Checker Pro. No restocking fees.">
+    <meta property="og:image" content="https://brakecheckerpro.com/assets/favicon.png">
+    <meta property="og:url" content="https://brakecheckerpro.com/returns">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css?v=2">
+
+    <style>
+        /* ====== POLICY PAGE ====== */
+        .policy-hero {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 9rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .policy-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(225,29,29,0.18), transparent 55%),
+                radial-gradient(circle at 80% 70%, rgba(255,184,0,0.10), transparent 60%);
+            pointer-events: none;
+        }
+        .policy-hero .wrap-narrow { position: relative; z-index: 1; }
+        .policy-hero .eyebrow { color: var(--amber); margin-bottom: 1.2rem; }
+        .policy-hero h1 {
+            font-family: var(--display);
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            line-height: 0.98;
+            text-transform: uppercase;
+            letter-spacing: 0.005em;
+            margin-bottom: 1.2rem;
+        }
+        .policy-hero h1 .accent { color: var(--red); }
+        .policy-hero .effective {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .policy-body {
+            background: var(--paper);
+            padding: 4rem 0 6rem;
+        }
+        .prose {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: var(--ink);
+        }
+        .prose > p:first-of-type {
+            font-size: 1.15rem;
+            color: var(--steel-mid);
+            border-left: 4px solid var(--red);
+            padding-left: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .prose h2 {
+            font-family: var(--display);
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.008em;
+            margin-top: 3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--ink);
+            color: var(--ink);
+        }
+        .prose h2:first-child { margin-top: 0; }
+        .prose p { margin-bottom: 1.2rem; color: var(--steel); }
+        .prose a { color: var(--red); font-weight: 600; border-bottom: 1px solid rgba(225,29,29,0.3); }
+        .prose a:hover { color: var(--red-deep); border-bottom-color: var(--red-deep); }
+        .prose strong { color: var(--ink); font-weight: 700; }
+        .prose ul, .prose ol {
+            margin: 0 0 1.4rem 1.4rem;
+            color: var(--steel);
+        }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose ol li { padding-left: 0.4rem; }
+
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.6rem 0 2rem;
+            background: var(--paper-warm);
+            border: 1px solid var(--hairline);
+            font-size: 0.98rem;
+        }
+        .prose th {
+            background: var(--ink);
+            color: var(--paper);
+            text-align: left;
+            padding: 0.95rem 1.1rem;
+            font-family: var(--body);
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .prose td {
+            padding: 1rem 1.1rem;
+            border-top: 1px solid var(--hairline);
+            color: var(--steel);
+            vertical-align: top;
+        }
+        .prose td strong { color: var(--good); font-weight: 700; }
+
+        /* short-version highlight card */
+        .promise-card {
+            background: var(--paper-warm);
+            border-left: 6px solid var(--amber);
+            padding: 1.8rem 2rem;
+            margin: 0 0 2.8rem;
+            border-radius: 4px;
+        }
+        .promise-card .head {
+            font-family: var(--display);
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+        .promise-card ul {
+            list-style: none;
+            margin: 0;
+        }
+        .promise-card li {
+            padding: 0.45rem 0 0.45rem 1.8rem;
+            position: relative;
+            color: var(--ink);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .promise-card li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--red);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(225,29,29,0.15);
+        }
+
+        .contact-card {
+            margin-top: 2.5rem;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 2rem 2.2rem;
+            border-radius: 8px;
+            border-left: 6px solid var(--amber);
+        }
+        .contact-card .label {
+            font-family: var(--display);
+            font-size: 1.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            color: var(--amber);
+            margin-bottom: 0.8rem;
+        }
+        .contact-card p { color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
+        .contact-card a { color: var(--paper); border-bottom-color: rgba(255,255,255,0.4); }
+        .contact-card a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+        .back-cta {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .back-cta p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .policy-hero { padding: 7rem 0 3rem; }
+            .policy-body { padding: 3rem 0 4rem; }
+            .prose table { font-size: 0.9rem; }
+            .prose th, .prose td { padding: 0.7rem 0.8rem; }
+            .contact-card { padding: 1.5rem 1.4rem; }
+            .promise-card { padding: 1.4rem 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Primary">
+    <div class="wrap">
+        <a class="nav-brand" href="/" aria-label="Brake Checker Pro home">
+            <img src="/assets/brakecheckerprofinalv4.png" alt="Brake Checker Pro logo" width="72" height="72">
+            <span class="wordmark">Brake Checker <span class="pro">Pro</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#how">How It Works</a></li>
+            <li><a href="/#pays">Why It Pays</a></li>
+            <li><a href="/#specs">Specs</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#buy" class="btn btn-primary" data-stripe-buy>Buy $79.99</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HEADER ============ -->
+<section class="policy-hero">
+    <div class="wrap-narrow">
+        <div class="eyebrow on-dark">Customer Information</div>
+        <h1>30-Day<br><span class="accent">Return Policy.</span></h1>
+        <div class="effective">Effective Date: May 23, 2026</div>
+    </div>
+</section>
+
+<!-- ============ CONTENT ============ -->
+<section class="policy-body">
+    <div class="wrap-narrow">
+        <article class="prose">
+
+            <p>We stand behind Brake Checker Pro. If the tool doesn't fit your truck or doesn't fit your workflow, we'll take it back.</p>
+
+            <div class="promise-card">
+                <div class="head">The Short Version</div>
+                <ul>
+                    <li><strong>30 days</strong> from delivery to request a return</li>
+                    <li>Tool must be <strong>unused and in original condition</strong></li>
+                    <li><strong>No restocking fees</strong></li>
+                    <li><strong>No questions asked</strong></li>
+                    <li>Customer pays return shipping unless the product is defective or arrived damaged</li>
+                </ul>
+            </div>
+
+            <h2>What Qualifies for a Return</h2>
+            <p>You may return Brake Checker Pro within 30 days of delivery if:</p>
+            <ul>
+                <li>The tool is unused and shows no signs of installation, road use, or wear</li>
+                <li>All original packaging and accessories are included</li>
+                <li>The product has not been modified or damaged by the customer</li>
+            </ul>
+            <p>We reserve the right to deny refunds or assess a partial credit on returns that arrive in used, damaged, or incomplete condition.</p>
+
+            <h2>What Does Not Qualify</h2>
+            <p>The following are <strong>not eligible</strong> for return:</p>
+            <ul>
+                <li>Tools returned more than 30 days after delivery</li>
+                <li>Tools showing visible signs of use, road dirt, modification, or damage</li>
+                <li>Items missing original packaging or accessories</li>
+                <li>Orders where the customer entered an incorrect shipping address and refused or did not retrieve the package</li>
+            </ul>
+
+            <h2>How to Start a Return</h2>
+            <ol>
+                <li>Email <strong><a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></strong> with your order number and a brief reason for the return.</li>
+                <li>We will respond within 1&ndash;2 business days with a Return Merchandise Authorization (RMA) number and return instructions.</li>
+                <li>Pack the tool securely in its original packaging.</li>
+                <li>Ship to the return address provided, with the RMA number clearly written on the outside of the package.</li>
+            </ol>
+            <p><strong>Do not send returns without contacting us first.</strong> Returns received without an RMA number may be delayed or refused.</p>
+
+            <h2>Return Shipping Costs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reason for Return</th>
+                        <th>Who Pays Shipping</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Changed your mind, doesn't fit your rig, didn't fit workflow</td>
+                        <td>Customer</td>
+                    </tr>
+                    <tr>
+                        <td>Defective product</td>
+                        <td><strong>Brake Checker Pro</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Arrived damaged in shipping</td>
+                        <td><strong>Brake Checker Pro</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Wrong item shipped</td>
+                        <td><strong>Brake Checker Pro</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>For defective, damaged, or incorrect items, we will provide a prepaid return label by email.</p>
+
+            <h2>Refund Processing</h2>
+            <p>Once we receive and inspect your return:</p>
+            <ul>
+                <li>Refunds are processed within <strong>5 business days</strong></li>
+                <li>Refunds are issued to the <strong>original payment method</strong> used at checkout</li>
+                <li>Depending on your bank, it may take an additional <strong>3&ndash;10 business days</strong> for the refund to appear on your statement</li>
+                <li>You will receive an email confirmation once the refund is issued</li>
+            </ul>
+            <p>The refund amount will equal the product price plus original sales tax. Original outbound shipping costs are non-refundable except where the return is due to our error or a defective product.</p>
+
+            <h2>Defective Products</h2>
+            <p>Brake Checker Pro is built from steel and made to last. If you receive a defective unit or one that fails under normal use within the first 30 days, we will replace it free of charge or issue a full refund &mdash; your choice.</p>
+            <p>Email <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a> with your order number and a photo or short description of the defect.</p>
+
+            <h2>Exchanges</h2>
+            <p>We do not currently offer direct exchanges. If you need a different configuration or a replacement, please return your original order for a refund and place a new order.</p>
+
+            <h2>Cancellations</h2>
+            <p>Orders may be cancelled at no charge if they have not yet shipped. Once an order has shipped, it is subject to the standard return process above.</p>
+            <p>To cancel an unshipped order, email <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a> as soon as possible with your order number.</p>
+
+            <h2>Contact Us</h2>
+            <div class="contact-card">
+                <div class="label">Brake Checker Pro</div>
+                <p>Crosby, Texas</p>
+                <p>Phone: <a href="tel:2813285339">281-328-5339</a></p>
+                <p>Email: <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></p>
+            </div>
+
+            <div class="back-cta">
+                <p>Ready to keep your rig DOT-clean?</p>
+                <a href="/#buy" class="btn btn-amber" data-stripe-buy>
+                    Order Brake Checker Pro <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+
+        </article>
+    </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+    <div class="wrap">
+        <div class="foot-grid">
+            <div class="foot-brand">
+                <img src="/assets/brakecheckerprofinalv4.png" alt="Brake Checker Pro logo" width="96" height="96" loading="lazy">
+                <div class="wm">Brake Checker <span class="pro">Pro</span></div>
+                <p>The patented solo brake light and air leak test tool. Built by drivers, for drivers. Assembled in Crosby, Texas.</p>
+            </div>
+            <div class="foot-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/#how">How It Works</a></li>
+                    <li><a href="/#pays">Why It Pays</a></li>
+                    <li><a href="/#specs">Specs</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                    <li><a href="/#buy" data-stripe-buy>Buy $79.99</a></li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:2813285339">281-328-5339</a></li>
+                    <li><a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></li>
+                    <li>Crosby, Texas</li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Policy</h4>
+                <ul>
+                    <li><a href="/shipping">Shipping</a></li>
+                    <li><a href="/returns">30-Day Returns</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-bot">
+            <div>&copy; 2026 Brake Checker Pro. All rights reserved.</div>
+            <div class="credit">
+                Created by <a href="https://www.chatbotboy.ai/" target="_blank" rel="noopener">Chatbot Boy AI</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/main.js?v=3" defer></script>
+</body>
+</html>

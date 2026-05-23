@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Policy | Brake Checker Pro</title>
+    <meta name="description" content="Brake Checker Pro ships from Crosby, Texas to the 48 contiguous United States. Free shipping over $100. 2-5 business day delivery.">
+    <meta name="theme-color" content="#0F0F10">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shipping Policy | Brake Checker Pro">
+    <meta property="og:description" content="Brake Checker Pro ships from Crosby, Texas to the 48 contiguous United States. Free shipping over $100.">
+    <meta property="og:image" content="https://brakecheckerpro.com/assets/favicon.png">
+    <meta property="og:url" content="https://brakecheckerpro.com/shipping">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css?v=2">
+
+    <style>
+        /* ====== POLICY PAGE ====== */
+        .policy-hero {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 9rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .policy-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(225,29,29,0.18), transparent 55%),
+                radial-gradient(circle at 80% 70%, rgba(255,184,0,0.10), transparent 60%);
+            pointer-events: none;
+        }
+        .policy-hero .wrap-narrow { position: relative; z-index: 1; }
+        .policy-hero .eyebrow { color: var(--amber); margin-bottom: 1.2rem; }
+        .policy-hero h1 {
+            font-family: var(--display);
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            line-height: 0.98;
+            text-transform: uppercase;
+            letter-spacing: 0.005em;
+            margin-bottom: 1.2rem;
+        }
+        .policy-hero h1 .accent { color: var(--red); }
+        .policy-hero .effective {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .policy-body {
+            background: var(--paper);
+            padding: 4rem 0 6rem;
+        }
+        .prose {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: var(--ink);
+        }
+        .prose > p:first-of-type {
+            font-size: 1.15rem;
+            color: var(--steel-mid);
+            border-left: 4px solid var(--red);
+            padding-left: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .prose h2 {
+            font-family: var(--display);
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.008em;
+            margin-top: 3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--ink);
+            color: var(--ink);
+        }
+        .prose h2:first-child { margin-top: 0; }
+        .prose p { margin-bottom: 1.2rem; color: var(--steel); }
+        .prose a { color: var(--red); font-weight: 600; border-bottom: 1px solid rgba(225,29,29,0.3); }
+        .prose a:hover { color: var(--red-deep); border-bottom-color: var(--red-deep); }
+        .prose strong { color: var(--ink); font-weight: 700; }
+        .prose ul, .prose ol {
+            margin: 0 0 1.4rem 1.4rem;
+            color: var(--steel);
+        }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose ol li { padding-left: 0.4rem; }
+
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.6rem 0 2rem;
+            background: var(--paper-warm);
+            border: 1px solid var(--hairline);
+            font-size: 0.98rem;
+        }
+        .prose th {
+            background: var(--ink);
+            color: var(--paper);
+            text-align: left;
+            padding: 0.95rem 1.1rem;
+            font-family: var(--body);
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .prose td {
+            padding: 1rem 1.1rem;
+            border-top: 1px solid var(--hairline);
+            color: var(--steel);
+            vertical-align: top;
+        }
+        .prose td strong { color: var(--good); font-weight: 700; }
+
+        .contact-card {
+            margin-top: 2.5rem;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 2rem 2.2rem;
+            border-radius: 8px;
+            border-left: 6px solid var(--amber);
+        }
+        .contact-card .label {
+            font-family: var(--display);
+            font-size: 1.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            color: var(--amber);
+            margin-bottom: 0.8rem;
+        }
+        .contact-card p { color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
+        .contact-card a { color: var(--paper); border-bottom-color: rgba(255,255,255,0.4); }
+        .contact-card a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+        .back-cta {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .back-cta p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .policy-hero { padding: 7rem 0 3rem; }
+            .policy-body { padding: 3rem 0 4rem; }
+            .prose table { font-size: 0.9rem; }
+            .prose th, .prose td { padding: 0.7rem 0.8rem; }
+            .contact-card { padding: 1.5rem 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Primary">
+    <div class="wrap">
+        <a class="nav-brand" href="/" aria-label="Brake Checker Pro home">
+            <img src="/assets/brakecheckerprofinalv4.png" alt="Brake Checker Pro logo" width="72" height="72">
+            <span class="wordmark">Brake Checker <span class="pro">Pro</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#how">How It Works</a></li>
+            <li><a href="/#pays">Why It Pays</a></li>
+            <li><a href="/#specs">Specs</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#buy" class="btn btn-primary" data-stripe-buy>Buy $79.99</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HEADER ============ -->
+<section class="policy-hero">
+    <div class="wrap-narrow">
+        <div class="eyebrow on-dark">Customer Information</div>
+        <h1>Shipping<br><span class="accent">Policy.</span></h1>
+        <div class="effective">Effective Date: May 23, 2026</div>
+    </div>
+</section>
+
+<!-- ============ CONTENT ============ -->
+<section class="policy-body">
+    <div class="wrap-narrow">
+        <article class="prose">
+
+            <p>Thank you for choosing Brake Checker Pro. This Shipping Policy explains how and when your order will be processed and delivered.</p>
+
+            <h2>Order Processing</h2>
+            <p>Orders are processed Monday through Friday, excluding U.S. federal holidays. Most orders placed before 2:00 PM Central Time are processed the same business day. Orders placed after that cutoff, on weekends, or on holidays are processed the next business day.</p>
+            <p>You will receive an order confirmation by email once your purchase is complete. A second email with tracking information will be sent when your order ships.</p>
+
+            <h2>Shipping Locations</h2>
+            <p>We ship from our facility in Crosby, Texas to all 48 contiguous United States.</p>
+            <p>At this time we do <strong>not</strong> ship to:</p>
+            <ul>
+                <li>Alaska and Hawaii</li>
+                <li>U.S. territories (Puerto Rico, Guam, U.S. Virgin Islands, etc.)</li>
+                <li>APO/FPO/DPO addresses</li>
+                <li>International destinations</li>
+            </ul>
+            <p>If you need delivery to one of these locations, contact us at <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a> and we will provide a custom shipping quote when possible.</p>
+
+            <h2>Shipping Rates and Delivery Times</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order Total</th>
+                        <th>Shipping Cost</th>
+                        <th>Estimated Delivery</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Under $100</td>
+                        <td>Calculated at checkout</td>
+                        <td>2&ndash;5 business days</td>
+                    </tr>
+                    <tr>
+                        <td>$100 and over</td>
+                        <td><strong>FREE</strong></td>
+                        <td>2&ndash;5 business days</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Delivery times are estimates from the carrier and begin the day your order ships, not the day it is placed. Transit times may be longer during peak shipping seasons, severe weather, or carrier disruptions.</p>
+
+            <h2>Tracking Your Order</h2>
+            <p>Once your order ships, you will receive an email with a tracking number and carrier link. Allow up to 24 hours for tracking information to update after you receive the email.</p>
+            <p>If you do not receive tracking information within three business days of placing your order, please contact <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a>.</p>
+
+            <h2>Lost, Stolen, or Damaged Packages</h2>
+            <p><strong>Lost packages:</strong> If tracking shows no movement for more than seven business days, contact us and we will open a claim with the carrier. Once a package is confirmed lost, we will ship a replacement at no cost to you.</p>
+            <p><strong>Stolen packages:</strong> Packages marked &ldquo;delivered&rdquo; by the carrier are considered received. If your package is marked delivered but you cannot locate it, please:</p>
+            <ol>
+                <li>Check with neighbors and household members</li>
+                <li>Look for delivery photos in your tracking app</li>
+                <li>Contact the carrier directly to file a claim</li>
+            </ol>
+            <p>We will assist with carrier claims where possible but cannot be held responsible for packages stolen after confirmed delivery.</p>
+            <p><strong>Damaged packages:</strong> If your tool arrives damaged, email photos of the package and product to <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a> within 7 days of delivery. We will arrange a free replacement or refund.</p>
+
+            <h2>Incorrect Shipping Addresses</h2>
+            <p>Please double-check your shipping address at checkout. If you enter an incorrect address and the package is returned to us, you will be responsible for re-shipping costs. If the package is delivered to the wrong address because of customer entry error, we cannot offer a refund or replacement.</p>
+            <p>If you notice an address error immediately after ordering, contact <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a> as soon as possible. We will correct it if the order has not yet shipped.</p>
+
+            <h2>Carriers</h2>
+            <p>We ship via USPS, UPS, and FedEx, selected based on destination and order size. We do not currently offer carrier selection at checkout.</p>
+
+            <h2>Sales Tax</h2>
+            <p>Sales tax is calculated at checkout based on your shipping address and applicable state and local rates.</p>
+
+            <h2>Contact Us</h2>
+            <p>Questions about a shipment?</p>
+            <div class="contact-card">
+                <div class="label">Brake Checker Pro</div>
+                <p>Crosby, Texas</p>
+                <p>Phone: <a href="tel:2813285339">281-328-5339</a></p>
+                <p>Email: <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></p>
+            </div>
+
+            <div class="back-cta">
+                <p>Ready to keep your rig DOT-clean?</p>
+                <a href="/#buy" class="btn btn-amber" data-stripe-buy>
+                    Order Brake Checker Pro <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+
+        </article>
+    </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+    <div class="wrap">
+        <div class="foot-grid">
+            <div class="foot-brand">
+                <img src="/assets/brakecheckerprofinalv4.png" alt="Brake Checker Pro logo" width="96" height="96" loading="lazy">
+                <div class="wm">Brake Checker <span class="pro">Pro</span></div>
+                <p>The patented solo brake light and air leak test tool. Built by drivers, for drivers. Assembled in Crosby, Texas.</p>
+            </div>
+            <div class="foot-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/#how">How It Works</a></li>
+                    <li><a href="/#pays">Why It Pays</a></li>
+                    <li><a href="/#specs">Specs</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                    <li><a href="/#buy" data-stripe-buy>Buy $79.99</a></li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:2813285339">281-328-5339</a></li>
+                    <li><a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></li>
+                    <li>Crosby, Texas</li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Policy</h4>
+                <ul>
+                    <li><a href="/shipping">Shipping</a></li>
+                    <li><a href="/returns">30-Day Returns</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-bot">
+            <div>&copy; 2026 Brake Checker Pro. All rights reserved.</div>
+            <div class="credit">
+                Created by <a href="https://www.chatbotboy.ai/" target="_blank" rel="noopener">Chatbot Boy AI</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/main.js?v=3" defer></script>
+</body>
+</html>

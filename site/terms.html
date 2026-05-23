@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions | Brake Checker Pro</title>
+    <meta name="description" content="Terms and Conditions governing use of brakecheckerpro.com and the purchase of Brake Checker Pro products.">
+    <meta name="theme-color" content="#0F0F10">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Terms and Conditions | Brake Checker Pro">
+    <meta property="og:description" content="Terms and Conditions governing use of brakecheckerpro.com and the purchase of Brake Checker Pro products.">
+    <meta property="og:image" content="https://brakecheckerpro.com/assets/favicon.png">
+    <meta property="og:url" content="https://brakecheckerpro.com/terms">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css?v=2">
+
+    <style>
+        /* ====== POLICY PAGE ====== */
+        .policy-hero {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 9rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .policy-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(225,29,29,0.18), transparent 55%),
+                radial-gradient(circle at 80% 70%, rgba(255,184,0,0.10), transparent 60%);
+            pointer-events: none;
+        }
+        .policy-hero .wrap-narrow { position: relative; z-index: 1; }
+        .policy-hero .eyebrow { color: var(--amber); margin-bottom: 1.2rem; }
+        .policy-hero h1 {
+            font-family: var(--display);
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            line-height: 0.98;
+            text-transform: uppercase;
+            letter-spacing: 0.005em;
+            margin-bottom: 1.2rem;
+        }
+        .policy-hero h1 .accent { color: var(--red); }
+        .policy-hero .effective {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .policy-body {
+            background: var(--paper);
+            padding: 4rem 0 6rem;
+        }
+        .prose {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: var(--ink);
+        }
+        .prose > p:first-of-type {
+            font-size: 1.15rem;
+            color: var(--steel-mid);
+            border-left: 4px solid var(--red);
+            padding-left: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .prose h2 {
+            font-family: var(--display);
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.008em;
+            margin-top: 3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--ink);
+            color: var(--ink);
+        }
+        .prose h2:first-child { margin-top: 0; }
+        .prose h2 .num {
+            color: var(--red);
+            margin-right: 0.5rem;
+            font-weight: 400;
+        }
+        .prose h3 {
+            font-family: var(--body);
+            font-size: 1.08rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink);
+            margin-top: 2rem;
+            margin-bottom: 0.9rem;
+            padding-left: 0.9rem;
+            border-left: 3px solid var(--amber);
+        }
+        .prose p { margin-bottom: 1.2rem; color: var(--steel); }
+        .prose a { color: var(--red); font-weight: 600; border-bottom: 1px solid rgba(225,29,29,0.3); }
+        .prose a:hover { color: var(--red-deep); border-bottom-color: var(--red-deep); }
+        .prose strong { color: var(--ink); font-weight: 700; }
+        .prose ul, .prose ol {
+            margin: 0 0 1.4rem 1.4rem;
+            color: var(--steel);
+        }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose ol li { padding-left: 0.4rem; }
+
+        /* ALL-CAPS legal blocks (warranties, liability) */
+        .prose .legal-block {
+            background: var(--paper-warm);
+            border: 1px solid var(--hairline);
+            border-left: 4px solid var(--steel);
+            padding: 1.3rem 1.5rem;
+            margin: 0 0 1.4rem;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--steel);
+            letter-spacing: 0.005em;
+        }
+        .prose .legal-block + .legal-block { margin-top: -0.2rem; }
+
+        .contact-card {
+            margin-top: 1.5rem;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 2rem 2.2rem;
+            border-radius: 8px;
+            border-left: 6px solid var(--amber);
+        }
+        .contact-card .label {
+            font-family: var(--display);
+            font-size: 1.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            color: var(--amber);
+            margin-bottom: 0.8rem;
+        }
+        .contact-card p { color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
+        .contact-card a { color: var(--paper); border-bottom-color: rgba(255,255,255,0.4); }
+        .contact-card a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+        .back-cta {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .back-cta p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .policy-hero { padding: 7rem 0 3rem; }
+            .policy-body { padding: 3rem 0 4rem; }
+            .contact-card { padding: 1.5rem 1.4rem; }
+            .prose .legal-block { padding: 1.1rem 1.1rem; font-size: 0.88rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Primary">
+    <div class="wrap">
+        <a class="nav-brand" href="/" aria-label="Brake Checker Pro home">
+            <img src="/assets/brakecheckerprofinalv4.png" alt="Brake Checker Pro logo" width="72" height="72">
+            <span class="wordmark">Brake Checker <span class="pro">Pro</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#how">How It Works</a></li>
+            <li><a href="/#pays">Why It Pays</a></li>
+            <li><a href="/#specs">Specs</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#buy" class="btn btn-primary" data-stripe-buy>Buy $79.99</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HEADER ============ -->
+<section class="policy-hero">
+    <div class="wrap-narrow">
+        <div class="eyebrow on-dark">Customer Information</div>
+        <h1>Terms &amp;<br><span class="accent">Conditions.</span></h1>
+        <div class="effective">Effective Date: May 23, 2026</div>
+    </div>
+</section>
+
+<!-- ============ CONTENT ============ -->
+<section class="policy-body">
+    <div class="wrap-narrow">
+        <article class="prose">
+
+            <p>These Terms and Conditions (&ldquo;Terms&rdquo;) govern your access to and use of brakecheckerpro.com (the &ldquo;Site&rdquo;) and the purchase of products sold by Brake Checker Pro (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). By using the Site or placing an order, you agree to these Terms. If you do not agree, do not use the Site.</p>
+
+            <h2><span class="num">1.</span>Eligibility</h2>
+            <p>You must be at least 18 years old and capable of entering into a legally binding contract to use the Site or purchase our products. By placing an order, you represent that you meet these requirements and that the information you provide is accurate.</p>
+
+            <h2><span class="num">2.</span>Products and Pricing</h2>
+
+            <h3>Product Descriptions</h3>
+            <p>We make every effort to display our product accurately, including images, specifications, and use cases. However, colors, dimensions, and details shown on the Site are approximate and may vary slightly from the physical product.</p>
+
+            <h3>Pricing</h3>
+            <p>All prices are listed in U.S. dollars and are subject to change without notice. The price shown at checkout is the price you will be charged. We are not responsible for typographical errors and reserve the right to cancel any order containing an obvious pricing error, even after the order has been placed.</p>
+
+            <h3>Availability</h3>
+            <p>All products are subject to availability. If a product becomes unavailable after you place an order, we will notify you and issue a full refund.</p>
+
+            <h2><span class="num">3.</span>Orders and Payment</h2>
+
+            <h3>Placing an Order</h3>
+            <p>When you place an order, you make an offer to purchase the product at the listed price. We reserve the right to accept or decline any order at our discretion. Order confirmation is not order acceptance &mdash; your order is accepted when we ship the product.</p>
+
+            <h3>Payment Processing</h3>
+            <p>Payment is processed securely through Stripe. By providing payment information, you authorize us (or Stripe on our behalf) to charge the full order amount including taxes and shipping. We do not store full credit card numbers on our servers.</p>
+
+            <h3>Order Cancellation</h3>
+            <p>We may cancel or refuse any order at our discretion, including (without limitation) suspected fraud, suspected resale, pricing errors, or product unavailability. If we cancel your order, you will receive a full refund.</p>
+
+            <h2><span class="num">4.</span>Shipping and Delivery</h2>
+            <p>Shipping terms, rates, and timelines are governed by our <a href="/shipping"><strong>Shipping Policy</strong></a>, which is incorporated into these Terms by reference.</p>
+            <p>Risk of loss and title for products pass to you upon delivery to the carrier. Once we hand the package to the carrier, the carrier is responsible for safe delivery.</p>
+
+            <h2><span class="num">5.</span>Returns and Refunds</h2>
+            <p>Returns are governed by our <a href="/returns"><strong>30-Day Return Policy</strong></a>, which is incorporated into these Terms by reference.</p>
+
+            <h2><span class="num">6.</span>Product Use, Safety, and Disclaimers</h2>
+
+            <h3>Intended Use</h3>
+            <p>Brake Checker Pro is a driver-side inspection aid designed to hold a commercial vehicle's brake pedal in a depressed position while a single driver performs a pre-trip inspection. It is intended for use on parked, stationary commercial vehicles with appropriate air system pressure built up.</p>
+
+            <h3>Driver Responsibility</h3>
+            <p>You acknowledge and agree that:</p>
+            <ul>
+                <li><strong>You remain solely responsible</strong> for performing complete, lawful pre-trip and post-trip inspections in compliance with FMCSA Part 393, Part 396, and all other applicable federal, state, and local regulations.</li>
+                <li><strong>Brake Checker Pro is an aid, not a substitute</strong> for proper inspection procedures, driver training, or professional judgment.</li>
+                <li><strong>The product is not DOT-regulated equipment</strong> installed on the vehicle. It is a removable inspection tool used by the driver outside of vehicle operation.</li>
+                <li><strong>You must not use the tool while the vehicle is moving</strong> or under any condition where it could interfere with safe vehicle operation. Always remove the tool before driving.</li>
+                <li><strong>You must inspect the tool before each use</strong> for damage, wear, or defects. Do not use a damaged or modified tool.</li>
+            </ul>
+
+            <h3>Assumption of Risk</h3>
+            <p>Use of the product is at your own risk. Commercial vehicle inspection involves inherent risks, including but not limited to slips, falls, exposure to moving parts, and traffic hazards. You assume all risks associated with using Brake Checker Pro and performing pre-trip inspections.</p>
+
+            <h3>Disclaimer of Warranties</h3>
+            <p class="legal-block">EXCEPT FOR THE LIMITED WARRANTY DESCRIBED BELOW, THE PRODUCT IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE.&rdquo; TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+
+            <h3>Limited Warranty</h3>
+            <p>We warrant that the product will be free from manufacturing defects for 30 days from delivery. If the product fails under normal use within this period, we will replace it or refund the purchase price at our option, as described in the Return Policy. This warranty does not cover damage caused by misuse, modification, abuse, neglect, accident, or use beyond the product's intended purpose.</p>
+
+            <h2><span class="num">7.</span>Limitation of Liability</h2>
+            <p class="legal-block">TO THE FULLEST EXTENT PERMITTED BY LAW, BRAKE CHECKER PRO, ITS OWNERS, OFFICERS, EMPLOYEES, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION LOST PROFITS, LOST LOADS, LOST REVENUE, DOT FINES OR PENALTIES, CITATIONS, OUT-OF-SERVICE EVENTS, CSA SCORE IMPACTS, VEHICLE DOWNTIME, BODILY INJURY, OR PROPERTY DAMAGE, ARISING OUT OF OR RELATED TO YOUR USE OF THE PRODUCT OR THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+            <p class="legal-block">OUR TOTAL CUMULATIVE LIABILITY TO YOU FOR ANY CLAIM ARISING OUT OF OR RELATED TO THESE TERMS, THE SITE, OR THE PRODUCT SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THE PRODUCT GIVING RISE TO THE CLAIM.</p>
+            <p>Some jurisdictions do not allow limitations on implied warranties or exclusion of certain damages, so some of these limitations may not apply to you.</p>
+
+            <h2><span class="num">8.</span>Indemnification</h2>
+            <p>You agree to indemnify, defend, and hold harmless Brake Checker Pro and its owners, officers, employees, affiliates, and service providers from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or related to:</p>
+            <ul>
+                <li>Your use or misuse of the product</li>
+                <li>Your breach of these Terms</li>
+                <li>Your violation of any law or third-party right</li>
+                <li>Any inspection, repair, or operational decision you make based in whole or in part on use of the product</li>
+            </ul>
+
+            <h2><span class="num">9.</span>Intellectual Property</h2>
+            <p>All content on the Site &mdash; including the Brake Checker Pro name, logo, product designs, patented mechanisms, text, graphics, photos, videos, and software &mdash; is owned by Brake Checker Pro or its licensors and is protected by U.S. and international copyright, trademark, and patent laws.</p>
+            <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, sell, or otherwise exploit any content from the Site without our prior written permission.</p>
+            <p>The Brake Checker Pro tool is protected by U.S. patent. Unauthorized manufacture, reproduction, or distribution of the design is prohibited.</p>
+
+            <h2><span class="num">10.</span>User Conduct</h2>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use the Site for any unlawful purpose</li>
+                <li>Attempt to gain unauthorized access to the Site, our systems, or any related accounts</li>
+                <li>Interfere with the operation of the Site, including through hacking, scraping, or denial-of-service activity</li>
+                <li>Submit false, misleading, or fraudulent information when placing an order</li>
+                <li>Resell our products without prior written authorization</li>
+            </ul>
+            <p>We reserve the right to cancel orders, suspend accounts, and pursue legal remedies against any user who violates these terms.</p>
+
+            <h2><span class="num">11.</span>Third-Party Services</h2>
+            <p>The Site relies on third-party services including Stripe (payment), shipping carriers, hosting, and analytics. We are not responsible for the performance or content of third-party services. Your use of those services is subject to their own terms and privacy policies.</p>
+
+            <h2><span class="num">12.</span>Modifications to the Site and Terms</h2>
+            <p>We may modify the Site, the product, pricing, or these Terms at any time without notice. Material changes to these Terms will be posted on the Site with a revised Effective Date. Your continued use of the Site or purchase of products after changes are posted constitutes acceptance of the updated Terms.</p>
+
+            <h2><span class="num">13.</span>Governing Law and Dispute Resolution</h2>
+            <p>These Terms are governed by the laws of the State of Texas, without regard to its conflict-of-law principles.</p>
+            <p>Any dispute arising out of or relating to these Terms, the Site, or the product shall be resolved exclusively in the state or federal courts located in <strong>Harris County, Texas</strong>, and you consent to the personal jurisdiction of those courts.</p>
+            <p>You agree that any claim must be filed within <strong>one (1) year</strong> after it arises, or it is permanently barred.</p>
+            <p>You and Brake Checker Pro each waive any right to a jury trial in any proceeding arising out of or related to these Terms.</p>
+
+            <h2><span class="num">14.</span>Severability</h2>
+            <p>If any provision of these Terms is found unenforceable, the remaining provisions remain in full force and effect.</p>
+
+            <h2><span class="num">15.</span>No Waiver</h2>
+            <p>Our failure to enforce any provision of these Terms is not a waiver of our right to enforce it later.</p>
+
+            <h2><span class="num">16.</span>Entire Agreement</h2>
+            <p>These Terms, together with the <a href="/shipping">Shipping Policy</a>, <a href="/returns">Return Policy</a>, and <a href="/privacy">Privacy Policy</a>, constitute the entire agreement between you and Brake Checker Pro regarding your use of the Site and purchase of our products.</p>
+
+            <h2><span class="num">17.</span>Contact Us</h2>
+            <div class="contact-card">
+                <div class="label">Brake Checker Pro</div>
+                <p>Crosby, Texas</p>
+                <p>Phone: <a href="tel:2813285339">281-328-5339</a></p>
+                <p>Email: <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></p>
+            </div>
+
+            <div class="back-cta">
+                <p>Ready to keep your rig DOT-clean?</p>
+                <a href="/#buy" class="btn btn-amber" data-stripe-buy>
+                    Order Brake Checker Pro <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+
+        </article>
+    </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+    <div class="wrap">
+        <div class="foot-grid">
+            <div class="foot-brand">
+                <img src="/assets/brakecheckerprofinalv4.png" alt="Brake Checker Pro logo" width="96" height="96" loading="lazy">
+                <div class="wm">Brake Checker <span class="pro">Pro</span></div>
+                <p>The patented solo brake light and air leak test tool. Built by drivers, for drivers. Assembled in Crosby, Texas.</p>
+            </div>
+            <div class="foot-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/#how">How It Works</a></li>
+                    <li><a href="/#pays">Why It Pays</a></li>
+                    <li><a href="/#specs">Specs</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                    <li><a href="/#buy" data-stripe-buy>Buy $79.99</a></li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:2813285339">281-328-5339</a></li>
+                    <li><a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></li>
+                    <li>Crosby, Texas</li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Policy</h4>
+                <ul>
+                    <li><a href="/shipping">Shipping</a></li>
+                    <li><a href="/returns">30-Day Returns</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-bot">
+            <div>&copy; 2026 Brake Checker Pro. All rights reserved.</div>
+            <div class="credit">
+                Created by <a href="https://www.chatbotboy.ai/" target="_blank" rel="noopener">Chatbot Boy AI</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/main.js?v=3" defer></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Brake Checker Pro</title>
+    <meta name="description" content="How Brake Checker Pro collects, uses, and protects your personal information. We do not sell your data.">
+    <meta name="theme-color" content="#0F0F10">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Privacy Policy | Brake Checker Pro">
+    <meta property="og:description" content="How Brake Checker Pro collects, uses, and protects your personal information.">
+    <meta property="og:image" content="https://brakecheckerpro.com/assets/favicon.png">
+    <meta property="og:url" content="https://brakecheckerpro.com/privacy">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css?v=2">
+
+    <style>
+        /* ====== POLICY PAGE ====== */
+        .policy-hero {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 9rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .policy-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(225,29,29,0.18), transparent 55%),
+                radial-gradient(circle at 80% 70%, rgba(255,184,0,0.10), transparent 60%);
+            pointer-events: none;
+        }
+        .policy-hero .wrap-narrow { position: relative; z-index: 1; }
+        .policy-hero .eyebrow { color: var(--amber); margin-bottom: 1.2rem; }
+        .policy-hero h1 {
+            font-family: var(--display);
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            line-height: 0.98;
+            text-transform: uppercase;
+            letter-spacing: 0.005em;
+            margin-bottom: 1.2rem;
+        }
+        .policy-hero h1 .accent { color: var(--red); }
+        .policy-hero .effective {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .policy-body {
+            background: var(--paper);
+            padding: 4rem 0 6rem;
+        }
+        .prose {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: var(--ink);
+        }
+        .prose > p:first-of-type {
+            font-size: 1.15rem;
+            color: var(--steel-mid);
+            border-left: 4px solid var(--red);
+            padding-left: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .prose h2 {
+            font-family: var(--display);
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.008em;
+            margin-top: 3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--ink);
+            color: var(--ink);
+        }
+        .prose h2:first-child { margin-top: 0; }
+        .prose h2 .num {
+            color: var(--red);
+            margin-right: 0.5rem;
+            font-weight: 400;
+        }
+        .prose h3 {
+            font-family: var(--body);
+            font-size: 1.08rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink);
+            margin-top: 2rem;
+            margin-bottom: 0.9rem;
+            padding-left: 0.9rem;
+            border-left: 3px solid var(--amber);
+        }
+        .prose p { margin-bottom: 1.2rem; color: var(--steel); }
+        .prose a { color: var(--red); font-weight: 600; border-bottom: 1px solid rgba(225,29,29,0.3); }
+        .prose a:hover { color: var(--red-deep); border-bottom-color: var(--red-deep); }
+        .prose strong { color: var(--ink); font-weight: 700; }
+        .prose ul, .prose ol {
+            margin: 0 0 1.4rem 1.4rem;
+            color: var(--steel);
+        }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose ol li { padding-left: 0.4rem; }
+
+        .contact-card {
+            margin-top: 1.5rem;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 2rem 2.2rem;
+            border-radius: 8px;
+            border-left: 6px solid var(--amber);
+        }
+        .contact-card .label {
+            font-family: var(--display);
+            font-size: 1.5rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            color: var(--amber);
+            margin-bottom: 0.8rem;
+        }
+        .contact-card p { color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
+        .contact-card a { color: var(--paper); border-bottom-color: rgba(255,255,255,0.4); }
+        .contact-card a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+        .back-cta {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--hairline);
+        }
+        .back-cta p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .policy-hero { padding: 7rem 0 3rem; }
+            .policy-body { padding: 3rem 0 4rem; }
+            .contact-card { padding: 1.5rem 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="Primary">
+    <div class="wrap">
+        <a class="nav-brand" href="/" aria-label="Brake Checker Pro home">
+            <img src="/assets/brakecheckerprofinalv4.png" alt="Brake Checker Pro logo" width="72" height="72">
+            <span class="wordmark">Brake Checker <span class="pro">Pro</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#how">How It Works</a></li>
+            <li><a href="/#pays">Why It Pays</a></li>
+            <li><a href="/#specs">Specs</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#buy" class="btn btn-primary" data-stripe-buy>Buy $79.99</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HEADER ============ -->
+<section class="policy-hero">
+    <div class="wrap-narrow">
+        <div class="eyebrow on-dark">Customer Information</div>
+        <h1>Privacy<br><span class="accent">Policy.</span></h1>
+        <div class="effective">Effective Date: May 23, 2026</div>
+    </div>
+</section>
+
+<!-- ============ CONTENT ============ -->
+<section class="policy-body">
+    <div class="wrap-narrow">
+        <article class="prose">
+
+            <p>Brake Checker Pro (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your privacy. This Privacy Policy explains what information we collect, how we use it, who we share it with, and what choices you have. By using brakecheckerpro.com (the &ldquo;Site&rdquo;) or purchasing our products, you agree to the practices described below.</p>
+
+            <h2><span class="num">1.</span>Information We Collect</h2>
+
+            <h3>Information You Provide Directly</h3>
+            <p>When you place an order, contact us, or otherwise interact with the Site, you may provide:</p>
+            <ul>
+                <li><strong>Name</strong> and contact information (email address, phone number, shipping and billing address)</li>
+                <li><strong>Payment information</strong> (processed securely by Stripe; we do not store full card numbers on our servers)</li>
+                <li><strong>Order details</strong> (products purchased, quantity, order history)</li>
+                <li><strong>Communications</strong> with our customer service team</li>
+            </ul>
+
+            <h3>Information Collected Automatically</h3>
+            <p>When you visit the Site, we and our service providers may automatically collect:</p>
+            <ul>
+                <li><strong>Device and browser data</strong> (IP address, browser type, operating system, device identifiers)</li>
+                <li><strong>Usage data</strong> (pages visited, time spent on pages, referring URLs, click patterns)</li>
+                <li><strong>Cookies and similar technologies</strong> (see Section 6)</li>
+            </ul>
+
+            <h3>Information from Third Parties</h3>
+            <p>We may receive information about you from:</p>
+            <ul>
+                <li><strong>Stripe</strong>, our payment processor (transaction confirmation, fraud screening signals)</li>
+                <li><strong>Shipping carriers</strong> (USPS, UPS, FedEx) for delivery status updates</li>
+                <li><strong>Analytics providers</strong> (such as Google Analytics) for aggregated traffic data</li>
+            </ul>
+
+            <h2><span class="num">2.</span>How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Process and fulfill your orders</li>
+                <li>Communicate with you about your orders, shipping, and returns</li>
+                <li>Respond to customer service inquiries</li>
+                <li>Send marketing emails (only if you opt in or are an existing customer; you can unsubscribe at any time)</li>
+                <li>Improve the Site, our products, and the customer experience</li>
+                <li>Detect, prevent, and address fraud or security issues</li>
+                <li>Comply with legal obligations and enforce our Terms</li>
+            </ul>
+
+            <h2><span class="num">3.</span>How We Share Your Information</h2>
+            <p>We do <strong>not</strong> sell your personal information.</p>
+            <p>We share information only with:</p>
+            <ul>
+                <li><strong>Service providers</strong> who help us run our business, including Stripe (payments), shipping carriers, email platforms, analytics providers, and our manufacturing/fulfillment partner. These providers are contractually limited to using your data only to perform services for us.</li>
+                <li><strong>Legal and safety reasons</strong> if required by law, subpoena, court order, or to protect our rights, safety, or property.</li>
+                <li><strong>Business transfers</strong> in the event of a merger, acquisition, financing, or sale of all or part of our business. We will notify you of any material change in ownership of your data.</li>
+            </ul>
+
+            <h2><span class="num">4.</span>Data Security</h2>
+            <p>We use industry-standard safeguards to protect your information, including SSL encryption on the Site and secure payment processing through Stripe. No system is 100% secure; if you become aware of any security issue, please notify us immediately at <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a>.</p>
+
+            <h2><span class="num">5.</span>Data Retention</h2>
+            <p>We retain your information for as long as your account is active, your order history is relevant for warranty or support purposes, or as needed to comply with our legal obligations (such as tax records). You may request deletion of your personal data as described in Section 7.</p>
+
+            <h2><span class="num">6.</span>Cookies and Tracking Technologies</h2>
+            <p>The Site uses cookies and similar technologies to:</p>
+            <ul>
+                <li>Keep items in your shopping cart</li>
+                <li>Remember your preferences</li>
+                <li>Measure site performance and traffic</li>
+                <li>Run analytics and marketing measurement</li>
+            </ul>
+            <p>You can disable cookies in your browser settings. Disabling cookies may affect Site functionality, including checkout.</p>
+
+            <h2><span class="num">7.</span>Your Privacy Rights</h2>
+            <p>Depending on where you live, you may have the right to:</p>
+            <ul>
+                <li><strong>Access</strong> the personal information we hold about you</li>
+                <li><strong>Correct</strong> inaccurate information</li>
+                <li><strong>Delete</strong> your personal information</li>
+                <li><strong>Opt out</strong> of marketing communications at any time</li>
+                <li><strong>Opt out of &ldquo;sale&rdquo; or &ldquo;sharing&rdquo;</strong> of personal data (we do not sell personal data)</li>
+            </ul>
+            <p>To exercise any of these rights, email <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a> with the subject line &ldquo;Privacy Request.&rdquo; We will respond within 30 days.</p>
+
+            <h3>California Residents</h3>
+            <p>Under the California Consumer Privacy Act (CCPA) / CPRA, California residents have additional rights. We do not sell personal information as defined under CCPA. To submit a CCPA request, email <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a>.</p>
+
+            <h2><span class="num">8.</span>Email Marketing</h2>
+            <p>If you opt in to marketing emails, we may send you product updates, special offers, and educational content for commercial drivers. Every marketing email includes an unsubscribe link. You can also opt out by emailing <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a>.</p>
+            <p>Transactional emails (order confirmations, shipping notifications, return updates) are not promotional and cannot be opted out of while you have an active order.</p>
+
+            <h2><span class="num">9.</span>Children's Privacy</h2>
+            <p>The Site is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us so we can delete it.</p>
+
+            <h2><span class="num">10.</span>Third-Party Links</h2>
+            <p>The Site may contain links to other websites. We are not responsible for the privacy practices of those sites. We encourage you to read their privacy policies before providing information.</p>
+
+            <h2><span class="num">11.</span>Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Material changes will be posted on the Site with a revised &ldquo;Effective Date.&rdquo; Your continued use of the Site after changes are posted constitutes acceptance of the updated Policy.</p>
+
+            <h2><span class="num">12.</span>Contact Us</h2>
+            <p>For any questions about this Privacy Policy or your personal information:</p>
+            <div class="contact-card">
+                <div class="label">Brake Checker Pro</div>
+                <p>Crosby, Texas</p>
+                <p>Phone: <a href="tel:2813285339">281-328-5339</a></p>
+                <p>Email: <a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></p>
+            </div>
+
+            <div class="back-cta">
+                <p>Ready to keep your rig DOT-clean?</p>
+                <a href="/#buy" class="btn btn-amber" data-stripe-buy>
+                    Order Brake Checker Pro <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+
+        </article>
+    </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+    <div class="wrap">
+        <div class="foot-grid">
+            <div class="foot-brand">
+                <img src="/assets/brakecheckerprofinalv4.png" alt="Brake Checker Pro logo" width="96" height="96" loading="lazy">
+                <div class="wm">Brake Checker <span class="pro">Pro</span></div>
+                <p>The patented solo brake light and air leak test tool. Built by drivers, for drivers. Assembled in Crosby, Texas.</p>
+            </div>
+            <div class="foot-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="/#how">How It Works</a></li>
+                    <li><a href="/#pays">Why It Pays</a></li>
+                    <li><a href="/#specs">Specs</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                    <li><a href="/#buy" data-stripe-buy>Buy $79.99</a></li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:2813285339">281-328-5339</a></li>
+                    <li><a href="mailto:sales@brakecheckerpro.com">sales@brakecheckerpro.com</a></li>
+                    <li>Crosby, Texas</li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Policy</h4>
+                <ul>
+                    <li><a href="/shipping">Shipping</a></li>
+                    <li><a href="/returns">30-Day Returns</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/terms">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-bot">
+            <div>&copy; 2026 Brake Checker Pro. All rights reserved.</div>
+            <div class="credit">
+                Created by <a href="https://www.chatbotboy.ai/" target="_blank" rel="noopener">Chatbot Boy AI</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/main.js?v=3" defer></script>
+</body>
+</html>
