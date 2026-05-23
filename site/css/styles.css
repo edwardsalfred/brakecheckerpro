@@ -29,6 +29,43 @@ html { scroll-behavior: smooth; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
+/* UX Pro Max P1 — focus-visible: keyboard focus must be clearly visible */
+:focus { outline: none; }
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.btn:focus-visible {
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(255,184,0,0.35);
+}
+
+/* UX Pro Max P1 — skip-to-main link, visually hidden until focused */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--ink);
+  color: var(--amber);
+  padding: 0.85rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* UX Pro Max P2 — eliminate 300ms iOS tap delay on interactive elements */
+a, button, input, select, textarea, [role="button"] {
+  touch-action: manipulation;
+}
+
 body {
   font-family: var(--body);
   background: var(--paper);
