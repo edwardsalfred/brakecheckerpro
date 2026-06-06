@@ -7,6 +7,7 @@ circular shape into the alpha channel.
 Outputs:
   site/assets/favicon.png       (256x256, used for og:image and apple-touch)
   site/assets/favicon-32.png    (32x32, primary favicon)
+  site/assets/checkout-logo.png (1024x1024, uploaded to Shopify checkout)
 
 Run from the project root:
     python scripts/make-circular-favicon.py
@@ -17,6 +18,7 @@ import os
 SRC = "site/assets/brakecheckerprofinalv4.png"
 OUT_LARGE = "site/assets/favicon.png"
 OUT_SMALL = "site/assets/favicon-32.png"
+OUT_CHECKOUT = "site/assets/checkout-logo.png"
 
 
 def circular_crop(img: Image.Image) -> Image.Image:
@@ -34,8 +36,10 @@ def main():
         raise SystemExit(f"Source not found: {SRC}")
     src = Image.open(SRC)
     masked = circular_crop(src)
+    masked.resize((1024, 1024), Image.LANCZOS).save(OUT_CHECKOUT, "PNG", optimize=True)
     masked.resize((256, 256), Image.LANCZOS).save(OUT_LARGE, "PNG", optimize=True)
     masked.resize((32, 32), Image.LANCZOS).save(OUT_SMALL, "PNG", optimize=True)
+    print(f"Wrote {OUT_CHECKOUT} ({os.path.getsize(OUT_CHECKOUT)} bytes)")
     print(f"Wrote {OUT_LARGE} ({os.path.getsize(OUT_LARGE)} bytes)")
     print(f"Wrote {OUT_SMALL} ({os.path.getsize(OUT_SMALL)} bytes)")
 
