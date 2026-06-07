@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Single-product marketing landing page for Brake Checker Pro (patented solo brake-light and air-leak test tool). Static HTML/CSS/JS — **no build step, no framework, no package manager**. Checkout is handled externally by a Stripe Payment Link.
+Single-product marketing landing page for Brake Checker Pro (patented solo brake-light and air-leak test tool). Static HTML/CSS/JS — **no build step, no framework, no package manager**. Checkout is handled externally by a Shopify cart permalink.
 
 ## Commands
 
@@ -25,9 +25,9 @@ Deploy: `git push` to the connected Vercel project. `vercel.json` sets `outputDi
 
 - `site/index.html` (~450 lines) — the landing page. All sibling HTML files (`privacy.html`, `terms.html`, `shipping.html`, `returns.html`, `competitive-analysis.html`) are standalone pages that reuse the same CSS/JS.
 - `site/css/styles.css` (~970 lines) — one stylesheet, unminified by design (README explicitly favors readability; total payload is already <100KB).
-- `site/js/main.js` (~120 lines) — one IIFE handling: scrolled-nav state, sticky buy-bar visibility (between hero bottom and footer), mobile nav drawer, reveal-on-scroll via IntersectionObserver (with two timed fallbacks at 600ms and 3s in case observation misses), smooth anchor scroll with nav-height offset, and the Stripe placeholder guard.
+- `site/js/main.js` (~120 lines) — one IIFE handling: scrolled-nav state, sticky buy-bar visibility (between hero bottom and footer), mobile nav drawer, reveal-on-scroll via IntersectionObserver (with two timed fallbacks at 600ms and 3s in case observation misses), smooth anchor scroll with nav-height offset, and a developer safety-net for buy-link misconfiguration.
 
-**Stripe wiring is sentinel-based.** Every Buy link uses both `href="STRIPE_LINK_HERE"` (or `#buy`) and `data-stripe-buy`. The JS intercepts clicks on `[data-stripe-buy]` and alerts the user if the href hasn't been replaced. There are 5 instances in `index.html` and 2 in `main.js` — do a project-wide find/replace when wiring a real Payment Link. **Also update** the JSON-LD `Product` schema in `index.html` `<head>` if the price changes; it hardcodes `$79.99` separately from the visible price.
+**Checkout is a Shopify cart permalink.** Every real Buy button has `href="https://brakecheckerpro.myshopify.com/cart/50064538894573:1"` and the marker attribute `data-buy`. The JS in `main.js` watches `[data-buy]` clicks and intercepts if the href is missing or doesn't start with `http` — a safety net, not a content gate. The variant ID `50064538894573` is hardcoded; to change product/variant or migrate to a custom storefront domain, find/replace the URL across `site/`. The same URL also lives in the JSON-LD `Product.offers.url` in `index.html` `<head>` and **the price `$79.99` is hardcoded separately in the JSON-LD `Product.offers.price`** — update both if pricing changes. The homepage nav button (`href="#buy"`, no `data-buy`) is intentionally a scroll-to-CTA anchor, not a real Buy link.
 
 **Reveal animations.** Adding `class="reveal"` to any element opts it into the IntersectionObserver fade-in. The two fallback timers exist because earlier versions had elements stuck invisible on slow scroll/iOS — don't remove them without verifying on mobile Safari.
 

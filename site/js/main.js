@@ -107,13 +107,13 @@
     });
   });
 
-  // Stripe placeholder warning: any Buy link without a real URL warns the user
-  document.querySelectorAll('[data-stripe-buy]').forEach(btn => {
+  // Safety net: alert if a Buy link is missing a real checkout URL.
+  document.querySelectorAll('[data-buy]').forEach(btn => {
     btn.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
-      if (!href || href.includes('STRIPE_LINK_HERE') || href === '#buy') {
+      if (!href || !href.startsWith('http')) {
         e.preventDefault();
-        alert('Stripe Payment Link not configured yet. Replace STRIPE_LINK_HERE in site/index.html with your Stripe Payment Link URL once your account is set up.');
+        alert('Buy link not configured. Update the Shopify cart URL in the HTML.');
       }
     });
   });

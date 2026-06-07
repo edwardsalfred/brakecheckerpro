@@ -1,6 +1,6 @@
 # Brake Checker Pro — Landing Site
 
-Premium single-product landing page for the Brake Checker Pro patented solo brake-light and air-leak test tool. Built for truck drivers. Sells via Stripe.
+Premium single-product landing page for the Brake Checker Pro patented solo brake-light and air-leak test tool. Built for truck drivers. Checkout is handled by Shopify.
 
 ## What's Here
 
@@ -37,27 +37,17 @@ python -m http.server 8080
 
 Then open http://localhost:8080.
 
-## Step 1: Set Up Stripe (required before going live)
+## Step 1: Checkout (Shopify)
 
-The site is wired to a Stripe Payment Link. You need to create your Stripe account first.
+All Buy buttons point to a Shopify cart permalink that adds 1× Brake Checker Pro and drops the user on Shopify's cart page:
 
-1. **Create a Stripe account** at https://stripe.com (free, takes 5 minutes).
-2. **Add your product** in the Stripe dashboard → Products → New product:
-   - Name: Brake Checker Pro
-   - Price: $89.99
-   - Description: Patented solo brake-light and air-leak inspection tool for truck drivers.
-   - Add a product image (use `site/assets/product/product-3.png`).
-3. **Create a Payment Link** in the Stripe dashboard → Payment Links → New:
-   - Select your Brake Checker Pro product.
-   - Enable "Collect shipping address" (you need this to ship the tool).
-   - Optionally enable Apple Pay, Google Pay, and Link.
-   - Optionally add a "Shipping rate" so customers see shipping cost at checkout.
-   - Click Create. Stripe gives you a URL like `https://buy.stripe.com/abc123xyz`.
-4. **Drop the URL into `site/index.html`.** Find every instance of `STRIPE_LINK_HERE` (there are six in the file) and replace with your Payment Link URL.
-   - On Mac/Linux: `sed -i '' 's|STRIPE_LINK_HERE|https://buy.stripe.com/YOUR_LINK|g' site/index.html`
-   - On Windows PowerShell: `(Get-Content site/index.html) -replace 'STRIPE_LINK_HERE','https://buy.stripe.com/YOUR_LINK' | Set-Content site/index.html`
+```
+https://brakecheckerpro.myshopify.com/cart/50064538894573:1
+```
 
-Until that's done, the Buy buttons will pop up an alert reminding you to configure Stripe.
+The URL appears in `site/index.html` and the four policy pages (`privacy.html`, `returns.html`, `shipping.html`, `terms.html`). To change product/variant or migrate the storefront to a custom domain, find/replace that URL across `site/`.
+
+A small JavaScript safety net in `site/js/main.js` watches `[data-buy]` links — if the href is missing or doesn't start with `http`, it intercepts the click and alerts the developer instead of letting a broken Buy button ship.
 
 ## Step 2: Deploy to Vercel
 
