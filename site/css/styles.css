@@ -475,6 +475,41 @@ button { font: inherit; cursor: pointer; border: 0; background: transparent; }
 }
 .problem-image img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 
+/* ====== INVENTOR ====== */
+.inventor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+.inventor-photo {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--hairline);
+  background: var(--paper-warm);
+}
+.inventor-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+.inventor-text h2 { margin-bottom: 1.4rem; }
+.inventor-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+  color: var(--steel);
+}
+.inventor-text .sig {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin-top: 1.4rem;
+  margin-bottom: 0;
+}
+
 /* ====== HOW IT WORKS ====== */
 .steps {
   display: grid;
@@ -900,6 +935,7 @@ button { font: inherit; cursor: pointer; border: 0; background: transparent; }
   .hero-image { transform: none; max-width: 460px; margin: 0 auto; }
   .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
   .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .inventor-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .specs-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .steps { grid-template-columns: 1fr; }
   .reviews { grid-template-columns: 1fr; }
