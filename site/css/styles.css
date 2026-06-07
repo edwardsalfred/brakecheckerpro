@@ -491,7 +491,7 @@ button { font: inherit; cursor: pointer; border: 0; background: transparent; }
 }
 .inventor-photo img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
 }
